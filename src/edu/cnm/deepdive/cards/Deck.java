@@ -10,6 +10,8 @@ import java.util.Collections;
 import java.util.Random;
 
 /**
+ * Creates a deck object with a standard set of 52 cards.
+ * 
  * @author Sky Link
  *
  */
@@ -20,6 +22,9 @@ public class Deck {
   private Random rng = null;
   private int position;
   
+  /**
+   * Constructor for Deck.
+   */
   public Deck() {
     super();
     cards = new ArrayList<>();
@@ -33,6 +38,11 @@ public class Deck {
     position = 0;
   }
   
+  /**
+   * Method to shuffle the Deck instance.
+   * 
+   * @throws NoSuchAlgorithmException Can't instantiate source of randomness.
+   */
   public void shuffle() 
       throws NoSuchAlgorithmException {
     if (rng == null) {
@@ -42,16 +52,31 @@ public class Deck {
     shuffled = true;
     position = 0;
   }
-  
+  /**
+   * Changes cards field to an array of Card objects.
+   * 
+   * @return A card array that holds the values from the cards ArrayList.
+   */
   public Card[] toArray() {
     return cards.toArray(new Card[] {});
   }
-  
+  /**
+   * Draws a single card from the deck and keeping track of location.
+   * 
+   * @return A card object from the current location in the cards ArrayList.
+   * @throws IndexOutOfBoundsException Ran out of cards.
+   */
   public Card draw() 
       throws IndexOutOfBoundsException {
     return cards.get(position++);
   }
-  
+  /**
+   * Draws a specified number of cards.
+   * 
+   * @param numCards The number of cards to be drawn.
+   * @return The set of cards that were drawn.
+   * @throws IndexOutOfBoundsException Ran out of cards.
+   */
   public Card[] draw(int numCards) 
       throws IndexOutOfBoundsException {
     Card[] hand = new Card[numCards];

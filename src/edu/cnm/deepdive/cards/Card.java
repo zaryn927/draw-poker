@@ -4,19 +4,28 @@
 package edu.cnm.deepdive.cards;
 
 /**
+ * Creates a card object of one of 52 cards in a standard deck.
+ * 
  * @author Sky Link
  *
  */
 public class Card implements Comparable<Card> {
-  
+  /** represents the suit of the card. */
   public final Suit suit;
+  /** represents the rank of the card. */
   public final Rank rank;
-  
+  /**
+   * Constructor of card object.
+   * 
+   * @param suit The suit of the card.
+   * @param rank The rank of the card.
+   */
   public Card(Suit suit, Rank rank) {
     this.suit = suit;
     this.rank = rank;
   }
   
+  @Override
   public String toString() {
     return rank.toString() + suit.toString();
   }
@@ -29,13 +38,19 @@ public class Card implements Comparable<Card> {
     }
     return this.rank.compareTo(card.rank);
   }
-  
+  /**
+   * Represents the 4 suits in a deck.
+   * 
+   * @author Sky Link
+   *
+   */
   public enum Suit {
     CLUBS,
     DIAMONDS,
     HEARTS,
     SPADES;
     
+    @Override
     public String toString() {
       String value = null;
       switch (this) {
@@ -57,6 +72,12 @@ public class Card implements Comparable<Card> {
     
   }
   
+  /**
+   * Represents the ranks in a deck.
+   * 
+   * @author Sky Link
+   *
+   */
   public enum Rank {
     ACE(1,'A'),
     TWO(2,'2'),
@@ -67,7 +88,12 @@ public class Card implements Comparable<Card> {
     SEVEN(7,'7'),
     EIGHT(8,'8'),
     NINE(9,'9'),
-    TEN(10,'T'),
+    TEN(10,'T') {
+      @Override
+      public String toString() {
+        return "10";
+      }
+    },
     JACK(10,'J'),
     QUEEN(10,'Q'),
     KING(10,'K');
@@ -80,14 +106,11 @@ public class Card implements Comparable<Card> {
       this.symbol = symbol;
     }
     
+    @Override
     public String toString() {
-      switch (this) {
-        case TEN:
-          return "10";
-        default:
-          return new StringBuilder().append(symbol).toString();
-      }
+      return new StringBuilder().append(symbol).toString();
     }
+    
   }
 
 }
