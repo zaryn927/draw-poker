@@ -1,1 +1,10 @@
-edu.cnm.deepdive.cards.Card.Rank.TEN.toString()
+edu.cnm.deepdive.cards.Deck deck = new edu.cnm.deepdive.cards.Deck();
+deck.shuffle();
+
+edu.cnm.deepdive.cards.Hand hand = new edu.cnm.deepdive.cards.Hand(deck, 5);
+
+edu.cnm.deepdive.cards.Card[][] table = hand.byRanks();
+
+for (edu.cnm.deepdive.cards.Card.Rank rank : edu.cnm.deepdive.cards.Card.Rank.values()) {
+  System.out.println(java.util.Arrays.toString(table[rank.ordinal()]));
+}
