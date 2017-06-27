@@ -1,10 +1,11 @@
-edu.cnm.deepdive.cards.Deck deck = new edu.cnm.deepdive.cards.Deck();
-deck.shuffle();
+edu.cnm.deepdive.cards.Deck deck = new edu.cnm.deepdive.cards.Deck();deck.shuffle();
 
-edu.cnm.deepdive.cards.Hand hand = new edu.cnm.deepdive.cards.Hand(deck, 5);
+edu.cnm.deepdive.cards.Hand hand1 = new edu.cnm.deepdive.cards.Hand(deck);
+edu.cnm.deepdive.cards.Hand hand2 = new edu.cnm.deepdive.cards.Hand(deck);
 
-edu.cnm.deepdive.cards.Card[][] table = hand.byRanks();
 
-for (edu.cnm.deepdive.cards.Card.Rank rank : edu.cnm.deepdive.cards.Card.Rank.values()) {
-  System.out.println(java.util.Arrays.toString(table[rank.ordinal()]));
-}
+System.out.println(hand1.toString());
+System.out.println(hand2.toString());
+
+
+System.out.println(hand1.compareTo(hand2));

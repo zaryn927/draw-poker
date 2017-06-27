@@ -38,6 +38,11 @@ public class Deck {
     position = 0;
   }
   
+  @Override
+  public String toString() {
+    return cards.toString();
+  }
+  
   /**
    * Method to shuffle the Deck instance.
    * 
